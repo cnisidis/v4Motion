@@ -8,7 +8,7 @@ In order to keep it is as simple as it gets only the absolute positions of each 
 
 There are three different file types with one extentsion (v4m) which correspond to different settings, for instance the first one (0) is only T (translation rotation) the second (1) is extended Translation and Rotation and the third (2) is T + Matrices.
 
-The last one (which is by the way the default setting) was aiming to replace the FBX file exporting for an ongoing project, but this is not probably the way since FBX files are storing relative Rotations and Translations on a current default state which is being defined on the header of each joint (or this is what I understood so far).
+The last one (Matrix - which is by the way the default setting) was aiming to replace the FBX file exporting for an ongoing project, but this is not probably the way since FBX files are storing relative Rotations and Translations on a current default state which is being defined on the header of each joint (or this is what I understood so far).
 
 You may use it freely and change it according to your needs 
 
