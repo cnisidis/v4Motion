@@ -13,7 +13,7 @@ The last one (Matrix - which is by the way the default setting) was aiming to re
 You may use it freely and change it according to your needs 
 
 
-**Notes
+**Notes**
 
 The addon is supporting both actions and NLA strips but it cant export all of them at once, so you have to export one strip at a time or the whole action instead
 
