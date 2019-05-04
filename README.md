@@ -1,4 +1,4 @@
-# v4Motion
+# v4Motion (blender addon)
 Blender File Exchange Addon for vvvv (or just messing with skeletons)
 
 The general idea is to simplify the huge loaded FBX files for simple skeletons and long duration movements which are causing oftenly frame dropping in vvvv
@@ -12,6 +12,10 @@ The last one (Matrix - which is by the way the default setting) was aiming to re
 
 You may use it freely and change it according to your needs 
 
+
+**Notes
+
+The addon is supporting both actions and NLA strips but it cant export all of them at once, so you have to export one strip at a time or the whole action instead
 
 
 
