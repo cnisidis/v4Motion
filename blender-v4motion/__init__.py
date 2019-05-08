@@ -23,12 +23,21 @@ add bones names and count to offset bytes in vvvv
 0.7
 add matrix data option
 
+0.8 
+fix selected bones (constantly appending names)
+
+changed matrix order:
+a00 a01 a02 a03            a00 a02 a01 a03
+a10 a11 a12 a13     ---->  a20 a22 a21 a23
+a20 a21 a22 a23            a10 a12 a11 a13
+a30 a31 a32 a33            a30 a32 a31 a33
+
 TODO: add bone to clear animation data before importing
 """
 bl_info = {
     "name": "v4Motion",
     "author": "c nisidis",
-    "version": (0, 0, 7),
+    "version": (0, 0, 8),
     "blender": (2, 78, 0),
     "location": "View3D",
     "description": "Blender Armature to Moving Points exporter",
@@ -40,9 +49,9 @@ bl_info = {
 
 os.system("cls")
 
-selected_bones=[]
 
-def WriteData(context, filepath, settings, v4mData):
+
+def WriteData(context, filepath, settings, v4mData, selected_bones):
     
     type = 0
     sel_bones = ','.join(selected_bones)
@@ -76,7 +85,7 @@ def WriteData(context, filepath, settings, v4mData):
     print(header) 
     
     f = open(filepath, "wb+")
-
+    f.truncate(0)
     f.write(content)
 
     f.close()
@@ -154,7 +163,7 @@ class EXPORT_OT_ExporterV4Motion(Operator, ExportHelper):
                 print("selection is not an armature")
                 return {'CANCELLED'}
         
-        
+        selected_bones=[]
         bones = selected.pose.bones
         for bone in bones:
             selected_bones.append(bone.name)
@@ -227,10 +236,12 @@ class EXPORT_OT_ExporterV4Motion(Operator, ExportHelper):
                     bone_position = struct.pack('%sf' % len(pos), *pos)
                 elif type == True and is_matrix==True:
                     matrix = bone.matrix 
-                    pos = [vec.x, vec.y, vec.z, matrix[0][0], matrix[0][1], matrix[0][2], matrix[0][3],
-                                                matrix[1][0], matrix[1][1], matrix[1][2], matrix[1][3],
-                                                matrix[2][0], matrix[2][1], matrix[2][2], matrix[2][3],
-                                                matrix[3][0], matrix[3][1], matrix[3][2], matrix[3][3], ]
+                    pos = [vec.x, vec.y, vec.z, matrix[0][0], matrix[0][2], matrix[0][1], matrix[0][3],
+                                                
+                                                matrix[2][0], matrix[2][2], matrix[2][1], matrix[2][3],
+                                                matrix[1][0], matrix[1][2], matrix[1][1], matrix[1][3],
+                                                
+                                                matrix[3][0], matrix[3][2], matrix[3][1], matrix[3][3], ]
                     bone_position = struct.pack('%sf' % len(pos), *pos)
                 else:
                     pos = [vec.x, vec.y, vec.z]
@@ -243,7 +254,7 @@ class EXPORT_OT_ExporterV4Motion(Operator, ExportHelper):
                     
 
         
-        WriteData(context, self.filepath, self.use_setting, bones_as_bytes)
+        WriteData(context, self.filepath, self.use_setting, bones_as_bytes, selected_bones)
         return {'FINISHED'}
 
 class V4Motion(bpy.types.Panel):
