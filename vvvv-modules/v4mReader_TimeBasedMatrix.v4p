@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.1.dtd" >
-   <PATCH nodename="D:\Projects\Kykeon\vvvv\Plugins\v4Motion\vvvv-modules\v4mReader_TimeBasedMatrix.v4p" scrollx="8172" scrolly="11028" systemname="v4mReader_TimeBasedMatrix" filename="G:\DropBox\Dropbox\2018_10_BetweenUs\3_project\vvvv\prototype11_dust\modules\fbx_motion_stuff\v4mReader_TimeBasedMatrix.v4p">
+   <PATCH nodename="D:\Dropbox\projects\2018_10_BetweenUs\Kykeon\vvvv\Plugins\v4Motion\vvvv-modules\v4mReader_TimeBasedMatrix.v4p" scrollx="7275" scrolly="10950" systemname="v4mReader_TimeBasedMatrix" filename="G:\DropBox\Dropbox\2018_10_BetweenUs\3_project\vvvv\prototype11_dust\modules\fbx_motion_stuff\v4mReader_TimeBasedMatrix.v4p">
    <BOUNDS type="Window" left="525" top="1380" width="15585" height="12150">
    </BOUNDS>
    <NODE systemname="Reader (Raw)" nodename="Reader (Raw)" componentmode="Hidden" id="14">
@@ -553,7 +553,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="6345" top="2730" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="15.74">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="s">
    </PIN>
@@ -617,7 +617,7 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="435">
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
@@ -1835,11 +1835,13 @@
    </PIN>
    </NODE>
    <NODE systemname="SetMatrix (Transform)" nodename="SetMatrix (Transform)" componentmode="Hidden" id="208">
-   <BOUNDS type="Node" left="12255" top="19020" width="100" height="100">
+   <BOUNDS type="Node" left="12165" top="19200" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Matrix In" visible="1" slicecount="16" values="-6.37487030029297,-1.5198875189526E-006,0.717714428901672,0,0.696337580680847,0.00254791020415723,0.696337580680847,-1.62920684942947E-007,-0.717714428901672,-6.37487030029297,1.66019816560947E-007,1,-1.71116454339426E-007,-1.5198875189526E-006,0,0">
    </PIN>
    <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="Transpose (Transform)" nodename="Transpose (Transform)" componentmode="Hidden" id="209">
@@ -1848,6 +1850,8 @@
    <PIN pinname="Source" visible="1">
    </PIN>
    <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="210" systemname="IOBox (Node)">
@@ -1949,7 +1953,7 @@
    <LINK srcnodeid="208" srcpinname="Transform Out" dstnodeid="209" dstpinname="Source">
    </LINK>
    <NODE systemname="Rotate (Transform Vector)" nodename="Rotate (Transform Vector)" componentmode="Hidden" id="235">
-   <BOUNDS type="Node" left="10035" top="20055" width="100" height="100">
+   <BOUNDS type="Node" left="8115" top="17025" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
@@ -1959,11 +1963,11 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="236" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="10575" top="18855" width="795" height="720">
+   <BOUNDS type="Box" left="8655" top="15825" width="795" height="720">
    </BOUNDS>
-   <BOUNDS type="Node" left="10575" top="18855" width="0" height="0">
+   <BOUNDS type="Node" left="8655" top="15825" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="-0.25,0.5,0">
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,0,0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -1979,7 +1983,7 @@
    <NODE systemname="Multiply (Transform Priority)" filename="%VVVV%\addonpack\lib\nodes\plugins\TransformsAdvanced.dll" nodename="Multiply (Transform Priority)" componentmode="Hidden" id="237">
    <BOUNDS type="Node" left="10440" top="20880" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Transform 1" visible="1">
+   <PIN pinname="Transform 1" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Transform 2" visible="1">
    </PIN>
@@ -1989,10 +1993,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="209" srcpinname="Transform Out" dstnodeid="237" dstpinname="Transform 2">
-   </LINK>
-   <LINK srcnodeid="235" srcpinname="Transform Out" dstnodeid="237" dstpinname="Transform 1">
-   </LINK>
-   <LINK srcnodeid="237" srcpinname="Output" dstnodeid="210" dstpinname="Input Node">
    </LINK>
    <NODE systemname="Sort (String)" nodename="Sort (String)" componentmode="Hidden" id="243">
    <BOUNDS type="Node" left="23775" top="11040" width="100" height="100">
@@ -2055,5 +2055,111 @@
    <LINK srcnodeid="232" srcpinname="Former Slice" dstnodeid="231" dstpinname="Offset">
    </LINK>
    <LINK srcnodeid="201" srcpinname="Output" dstnodeid="231" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Scale (Transform Vector)" nodename="Scale (Transform Vector)" componentmode="Hidden" id="245">
+   <BOUNDS type="Node" left="11430" top="17760" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="246">
+   <BOUNDS type="Box" left="11865" top="16710" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="11865" top="16710" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="1,1,-1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="246" srcpinname="Y Output Value" dstnodeid="245" dstpinname="XYZ">
+   </LINK>
+   <NODE systemname="Multiply (Transform Priority)" filename="%VVVV%\addonpack\lib\nodes\plugins\TransformsAdvanced.dll" nodename="Multiply (Transform Priority)" componentmode="Hidden" id="247">
+   <BOUNDS type="Node" left="11820" top="21255" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform 1" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Priority 1" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="237" srcpinname="Output" dstnodeid="247" dstpinname="Transform 1">
+   </LINK>
+   <LINK srcnodeid="247" srcpinname="Output" dstnodeid="210" dstpinname="Input Node">
+   </LINK>
+   <NODE systemname="Scale (Transform Vector)" nodename="Scale (Transform Vector)" componentmode="Hidden" id="250">
+   <BOUNDS type="Node" left="9495" top="19995" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="249">
+   <BOUNDS type="Box" left="9930" top="18945" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="9930" top="18945" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="1,1,1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="249" srcpinname="Y Output Value" dstnodeid="250" dstpinname="XYZ">
+   </LINK>
+   <NODE systemname="Rotate (Transform Vector)" nodename="Rotate (Transform Vector)" componentmode="Hidden" id="252">
+   <BOUNDS type="Node" left="10305" top="17670" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="251" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="10845" top="16470" width="795" height="720">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10845" top="16470" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0.25,0,0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="251" srcpinname="Y Output Value" dstnodeid="252" dstpinname="XYZ">
+   </LINK>
+   <LINK srcnodeid="252" srcpinname="Transform Out" dstnodeid="245" dstpinname="Transform In">
+   </LINK>
+   <LINK srcnodeid="235" srcpinname="Transform Out" dstnodeid="237" dstpinname="Transform 1">
+   </LINK>
+   <LINK srcnodeid="245" srcpinname="Transform Out" dstnodeid="247" dstpinname="Transform 2">
    </LINK>
    </PATCH>
